@@ -1,0 +1,40 @@
+package com.andrewsavich.traveltelegrambot.model;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+
+@Entity(name = "cities")
+public class City {
+	@Id
+	@Column(name = "city_title")
+	@GeneratedValue
+	private int id;
+	
+	@Column(name = "city_title")
+	private String cityTitle;
+	
+	@Column(name = "descriprion")
+	private String description;
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getCityTitle() {
+		return cityTitle;
+	}
+	public void setCityTitle(String cityTitle) {
+		this.cityTitle = cityTitle;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	
+}
