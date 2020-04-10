@@ -8,14 +8,14 @@ import javax.persistence.Id;
 @Entity(name = "cities")
 public class City {
 	@Id
-	@Column(name = "city_title")
+	@Column(name = "city_id")
 	@GeneratedValue
 	private int id;
 	
 	@Column(name = "city_title")
 	private String cityTitle;
 	
-	@Column(name = "descriprion")
+	@Column(name = "description")
 	private String description;
 	public int getId() {
 		return id;
