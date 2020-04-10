@@ -1,20 +1,8 @@
-/target/
-!.mvn/wrapper/maven-wrapper.jar
 
-### STS ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-
-
-# Created by https://www.gitignore.io/api/git,java,maven,eclipse,windows
+# Created by https://www.gitignore.io/api/git,java,maven,windows,eclipse
+# Edit at https://www.gitignore.io/?templates=git,java,maven,windows,eclipse
 
 ### Eclipse ###
-
 .metadata
 bin/
 tmp/
@@ -134,10 +122,12 @@ dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
 .mvn/wrapper/maven-wrapper.jar
+.flattened-pom.xml
 
 ### Windows ###
 # Windows thumbnail cache files
 Thumbs.db
+Thumbs.db:encryptable
 ehthumbs.db
 ehthumbs_vista.db
 
@@ -159,3 +149,5 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# End of https://www.gitignore.io/api/git,java,maven,windows,eclipse
