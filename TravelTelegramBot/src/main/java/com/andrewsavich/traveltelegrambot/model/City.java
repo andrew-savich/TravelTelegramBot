@@ -13,7 +13,7 @@ public class City {
 	private int id;
 	
 	@Column(name = "city_title")
-	private String cityTitle;
+	private String title;
 	
 	@Column(name = "description")
 	private String description;
@@ -23,11 +23,11 @@ public class City {
 	public void setId(int id) {
 		this.id = id;
 	}
-	public String getCityTitle() {
-		return cityTitle;
+	public String getTitle() {
+		return title;
 	}
-	public void setCityTitle(String cityTitle) {
-		this.cityTitle = cityTitle;
+	public void setCityTitle(String title) {
+		this.title = title;
 	}
 	public String getDescription() {
 		return description;

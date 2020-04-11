@@ -6,5 +6,5 @@ import com.andrewsavich.traveltelegrambot.model.City;
 
 
 public interface CityRepository extends JpaRepository<City, Integer> {
-	
+	City getCityByTitle(String cityTitle);
 }

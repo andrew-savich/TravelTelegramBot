@@ -29,7 +29,10 @@ public class CityService {
 
 	public City getCityById(int id) {
 		return repository.findById(id).get();
-
+	}
+	
+	public City getCityByTitle(String cityTitle) {
+		return repository.getCityByTitle(cityTitle);
 	}
 
 }
