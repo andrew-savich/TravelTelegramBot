@@ -13,20 +13,38 @@ import com.andrewsavich.traveltelegrambot.service.CityService;
 
 @Component
 public class Bot extends TelegramLongPollingBot {
+	private byte countUnknownMessages = 0;
+	
 	@Autowired
 	CityService cityService;
 
 	@Override
 	public void onUpdateReceived(Update update) {
 		Message message = update.getMessage();
+		
 		if (message != null && message.hasText()) {
-			City city = cityService.getCityByTitle(message.getText());
+			String messageStr = message.getText();
+			City city = cityService.getCityByTitle(messageStr);
 
 			if (city != null) {
-				System.out.println(city);
 				sendMsg(message, city.getDescription());
 			} else {
-				System.out.println("city is null");
+
+				switch (messageStr) {
+				case "/help":
+					sendMsg(message, DefaultMessage.HELP + "\n" + cityService.allCityTitles());
+					break;
+
+				default:
+					if (countUnknownMessages < 3) {
+						sendMsg(message, DefaultMessage.UNKNOWN);
+						++countUnknownMessages;
+					} else {
+						sendMsg(message, DefaultMessage.HELP + "\n" + cityService.allCityTitles());
+						countUnknownMessages = 0;
+					}
+					break;
+				}
 			}
 		}
 	}
@@ -49,7 +67,6 @@ public class Bot extends TelegramLongPollingBot {
 		sendMessage.setText(text);
 
 		try {
-
 			execute(sendMessage);
 		} catch (TelegramApiException e) {
 			System.out.println("problem w/ sending message: " + e);

@@ -30,9 +30,25 @@ public class CityService {
 	public City getCityById(int id) {
 		return repository.findById(id).get();
 	}
-	
+
 	public City getCityByTitle(String cityTitle) {
 		return repository.getCityByTitle(cityTitle);
+	}
+
+	public String allCityTitles() {
+		List<City> cities = repository.findAll();
+		int countCities = 0;
+		String cityTitles = "";
+
+		for (City city : cities) {
+			if (++countCities < cities.size()) {
+				cityTitles += city.getTitle() + ", ";
+			} else {
+				cityTitles += city.getTitle();
+			}
+		}
+
+		return cityTitles;
 	}
 
 }
