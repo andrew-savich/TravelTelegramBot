@@ -31,12 +31,15 @@ public class Bot extends TelegramLongPollingBot {
 			} else {
 
 				switch (messageStr) {
+				case "/start":
+					sendMsg(message, DefaultMessage.START + "\n" + cityService.allCityTitles());
+					break;
 				case "/help":
 					sendMsg(message, DefaultMessage.HELP + "\n" + cityService.allCityTitles());
 					break;
 
 				default:
-					if (countUnknownMessages < 3) {
+					if (countUnknownMessages < 2) {
 						sendMsg(message, DefaultMessage.UNKNOWN);
 						++countUnknownMessages;
 					} else {

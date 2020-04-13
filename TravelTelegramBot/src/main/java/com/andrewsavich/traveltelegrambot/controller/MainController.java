@@ -15,12 +15,16 @@ public class MainController {
 	@Autowired
 	private CityService cityService;
 	
-	@RequestMapping("/")
-	public String viewHomePage(Model model) {
+	@RequestMapping("/adminpanel")
+	public String viewAdminPage(Model model) {
 		List<City> cities = cityService.allCities();
 		model.addAttribute("cities", cities);
 		
-		return "index";
+		return "adminPanel";
 	}
 	
+//	@RequestMapping("/login")
+//	public String viewLogin(Model model) {
+//		return "login";
+//	}
 }
