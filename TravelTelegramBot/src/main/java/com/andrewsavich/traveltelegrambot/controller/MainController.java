@@ -5,7 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.andrewsavich.traveltelegrambot.model.City;
 import com.andrewsavich.traveltelegrambot.service.CityService;
@@ -23,8 +25,19 @@ public class MainController {
 		return "adminPanel";
 	}
 	
-//	@RequestMapping("/login")
-//	public String viewLogin(Model model) {
-//		return "login";
-//	}
+	@RequestMapping("/adminpanel/addedit")
+	public String viewAddCity(Model model) {
+		City city = new City();
+		model.addAttribute("city",  city);
+		
+		return "addedit";
+	}
+	
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	public String saveProduct(@ModelAttribute("city") City city) {
+		System.out.println(city);
+	    cityService.saveCity(city);
+	     
+	    return "redirect:/adminpanel";
+	}
 }

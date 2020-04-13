@@ -15,7 +15,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests().antMatchers("/adminpanel").authenticated().
+		http.authorizeRequests().antMatchers("/adminpanel", "/adminpanel/addedit").authenticated().
 		and().formLogin().loginPage("/login").permitAll().
 		and().logout().permitAll();
 	}
