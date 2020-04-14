@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -35,9 +36,15 @@ public class MainController {
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public String saveProduct(@ModelAttribute("city") City city) {
-		System.out.println(city);
 	    cityService.saveCity(city);
 	     
 	    return "redirect:/adminpanel";
+	}
+	
+	@RequestMapping(value = "/delete/{id}")
+	public String deleteCity(@PathVariable("id") int id) {
+		City city = cityService.getCityById(id);
+		cityService.deleteCity(city);
+		return "redirect:/adminpanel";
 	}
 }

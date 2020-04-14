@@ -8,13 +8,14 @@
 <body>
 	<div align="center">
 		<h1>Cities</h1>
-		<br /> 
+		<br />
 		<table border="1">
 			<thead>
 				<tr>
 					<th>City ID</th>
 					<th>City Title</th>
 					<th>Description</th>
+					<th>Edit/Delete</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -22,10 +23,12 @@
 					<td th:text="${city.id}">Product ID</td>
 					<td th:text="${city.title}">Name</td>
 					<td th:text="${city.description}">Brand</td>
+					<td><a href="/@{'/addedit/' + ${city.title}}">Edit</a> <a
+						th:href="@{'/delete/' + ${city.id}}">Delete</a></td>
 				</tr>
 			</tbody>
 		</table>
-		<a href="/adminpanel/addedit">Add New City</a> 
+		<a href="/adminpanel/addedit">Add New City</a>
 	</div>
 	<div>
 		<form th:action="@{/logout}" method="post">
