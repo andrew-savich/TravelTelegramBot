@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotEmpty;
 
 @Entity(name = "cities")
 public class City {
@@ -12,10 +13,12 @@ public class City {
 	@Column(name = "city_id")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-
+	
+	@NotEmpty(message = "поле города не может быть пустым")
 	@Column(name = "city_title")
 	private String title;
-
+	
+	@NotEmpty(message = "добавьте описание")
 	@Column(name = "description")
 	private String description;
 

@@ -9,7 +9,7 @@
 	<div align="center">
 		<h1>Cities</h1>
 		<br />
-		<table border="1">
+		<table>
 			<thead>
 				<tr>
 					<th>City ID</th>
@@ -23,7 +23,7 @@
 					<td th:text="${city.id}">Product ID</td>
 					<td th:text="${city.title}">Name</td>
 					<td th:text="${city.description}">Brand</td>
-					<td><a href="/@{'/addedit/' + ${city.title}}">Edit</a> <a
+					<td><a th:href="@{'/addedit/' + ${city.id}}">Edit</a> <a
 						th:href="@{'/delete/' + ${city.id}}">Delete</a></td>
 				</tr>
 			</tbody>

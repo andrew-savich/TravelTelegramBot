@@ -50,5 +50,12 @@ public class CityService {
 
 		return cityTitles;
 	}
+	
+	public boolean isExistCity(String cityTitle) {
+		if(repository.getCityByTitle(cityTitle) != null) {
+			return true;
+		}
+		return false;
+	}
 
 }

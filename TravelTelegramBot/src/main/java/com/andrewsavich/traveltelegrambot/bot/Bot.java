@@ -14,30 +14,29 @@ import com.andrewsavich.traveltelegrambot.service.CityService;
 @Component
 public class Bot extends TelegramLongPollingBot {
 	private byte countUnknownMessages = 0;
-	
+
 	@Autowired
 	CityService cityService;
 
 	@Override
 	public void onUpdateReceived(Update update) {
 		Message message = update.getMessage();
-		
 		if (message != null && message.hasText()) {
-			String messageStr = message.getText();
-			City city = cityService.getCityByTitle(messageStr);
+			City city = cityService.getCityByTitle(message.getText());
 
 			if (city != null) {
 				sendMsg(message, city.getDescription());
+				countUnknownMessages = 0;
 			} else {
-
-				switch (messageStr) {
+				switch (message.getText()) {
 				case "/start":
 					sendMsg(message, DefaultMessage.START + "\n" + cityService.allCityTitles());
+					countUnknownMessages = 0;
 					break;
 				case "/help":
 					sendMsg(message, DefaultMessage.HELP + "\n" + cityService.allCityTitles());
+					countUnknownMessages = 0;
 					break;
-
 				default:
 					if (countUnknownMessages < 2) {
 						sendMsg(message, DefaultMessage.UNKNOWN);

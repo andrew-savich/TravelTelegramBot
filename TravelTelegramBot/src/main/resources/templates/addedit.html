@@ -3,29 +3,41 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8" />
-<title>add, edit page</title>
+<title th:if="!${city.id}">Add new city</title>
+<title th:if="${city.id}">Edit city</title>
 </head>
 <body>
 	<div align="center">
-        <h1>Add City</h1>
-        <br />
-        <form action="#" th:action="@{/save}" th:object="${city}"
-            method="post">
- 
-            <table border="0" cellpadding="10">
-                <tr>
-                    <td>City title:</td>
-                    <td><input type="text" th:field="*{title}" /></td>
-                </tr>
-                <tr>
-                    <td>Description:</td>
-                    <td><input type="text" th:field="*{description}" /></td>
-                </tr>
-                <tr>
-                    <td colspan="2"><button type="submit">Save</button> </td>
-                </tr>
-            </table>
-        </form>
-    </div>
+		<h1 th:if="!${city.id}">Add City</h1>
+		<h1 th:if="${city.id}">Edit City</h1>
+		<br />
+		<form action="#" th:action="@{/save}" th:object="${city}" method="post">
+
+				<table border="0" cellpadding="10">
+					<tr>
+						<td colspan="2"><input th:if="${city.id}" type="hidden"
+							th:field="*{id}" /></td>
+					</tr>
+					<tr>
+						<td>City title:</td>
+						<td><input type="text" th:field="*{title}" /></td>
+						<td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title
+							Error</td>
+					</tr>
+					<tr>
+						<td>Description:</td>
+						<td><input type="text" th:field="*{description}" /></td>
+						<td th:if="${#fields.hasErrors('description')}"
+							th:errors="*{description}">Description Error</td>
+					</tr>
+					<tr>
+						<td colspan="2">
+							<button th:if="!${city.id}" type="submit">Add City</button>
+							<button th:if="${city.id}" type="submit">Save City</button>
+						</td>
+					</tr>
+				</table>
+			</form>
+	</div>
 </body>
 </html>
