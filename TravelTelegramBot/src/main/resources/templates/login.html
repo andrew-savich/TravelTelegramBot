@@ -3,25 +3,30 @@
 	xmlns:th="https://www.thymeleaf.org"
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-<title>Login to travel bot admin panel</title>
+<title>Login to SavAndTravel admin panel</title>
+<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
 </head>
 <body>
-<div align="center"> 
-	<div th:if="${param.error}">Invalid username and password.</div>
-	<div th:if="${param.logout}">You have been logged out.</div>
-	<form th:action="@{/login}" method="post">
-		<div>
-			<label>User Name: <input type="text" name="username" />
-			</label>
+	<form class="form_login" th:action="@{/login}" method="post">
+
+		<h1 class="form_title">Login</h1>
+
+		<div class="form_group">
+			<input type="text" name="username" class="form_input" placeholder=" ">
+			<label class="form_label">username</label>
 		</div>
-		<div>
-			<label>Password: <input type="password" name="password" />
-			</label>
+
+		<div class="form_group">
+			<input type="password" name="password" class="form_input"
+				placeholder=" "> <label class="form_label">password</label>
 		</div>
-		<div>
-			<input type="submit" value="Log in" />
+		<div class="form_group">
+			<label class="errors" th:if="${param.error}">Invalid username or password</label>
+			<label class="warn" th:if="${param.logout}">You have been logged out</label>
 		</div>
+		<input type="submit" value="Log in" class="form_button" />
+
+
 	</form>
-	</div>
 </body>
 </html>

@@ -3,33 +3,39 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Travel Home Page</title>
+<title>SavAndTravel Home Page</title>
+<link href="../static/css/style.css" th:href="@{/css/style.css}"
+	rel="stylesheet" />
 </head>
 <body>
-	<div align="center">
-		<h1>Cities</h1>
-		<br />
+	<div class="form_table">
+	<h1 class="form_title">Cities</h1>
 		<table>
 			<thead>
 				<tr>
 					<th>City ID</th>
 					<th>City Title</th>
 					<th>Description</th>
-					<th>Edit/Delete</th>
+					<th>Action</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr th:each="city : ${cities}">
-					<td th:text="${city.id}">Product ID</td>
-					<td th:text="${city.title}">Name</td>
-					<td th:text="${city.description}">Brand</td>
+					<td th:text="${city.id}"></td>
+					<td th:text="${city.title}"></td>
+					<td th:text="${city.description}"></td>
 					<td><a th:href="@{'/addedit/' + ${city.id}}">Edit</a> <a
 						th:href="@{'/delete/' + ${city.id}}">Delete</a></td>
+					<!--<td><button class="form_button">Edit</button><button class="form_button">Delete</button></td>-->
 				</tr>
 			</tbody>
 		</table>
-		<a href="/adminpanel/addedit">Add New City</a>
+		
+		<button class="form_button"	onclick="window.location.href = '/adminpanel/addedit';">Add
+			New City</button>
+
 	</div>
+
 	<div>
 		<form th:action="@{/logout}" method="post">
 			<input type="submit" value="Exit" />
