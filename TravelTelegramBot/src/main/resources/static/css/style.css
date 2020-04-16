@@ -16,7 +16,7 @@ html, body{
 
 header{
     width: 70%;
-	margin-top: -20px;
+	margin-top: 0;
     padding: 0;
 	align-content: center;
 }
@@ -29,10 +29,28 @@ header{
 	box-shadow: 0 4px 5px #ccc;
 }
 
+
 .container_admin {
 	width: 70%;
-	height: 85%;
-	padding: 0 10px;
+	height: 80%;
+	padding: 0 30px;
+	border-radius: 5px;
+	box-shadow: 0 4px 5px #ccc;
+}
+
+#edit.container_admin{
+	width: 50%;
+	height: 80%;
+	padding: 10px;
+	border-radius: 5px;
+	box-shadow: 0 4px 5px #ccc;
+}
+
+.form_edit{
+	width: 90%;
+	height: 60%;
+	padding: 20px;
+	margin: 0;
 	border-radius: 5px;
 	box-shadow: 0 4px 5px #ccc;
 }
@@ -92,8 +110,6 @@ th {
 	margin: 0 5px 0 5px;	
 }
 
-
-
 .form_input, .form_button {
 	font-family: sans-serif;
 	letter-spacing: 1px;
@@ -107,7 +123,7 @@ th {
 
 .main_title {
 	text-align: center;
-	margin: 0 0 20px 0;
+	margin: 0 0 20px 20px;
 	font-weight: normal;
 }
 
@@ -127,7 +143,7 @@ th {
 	z-index: -1;
 }
 
-.errors {
+.error {
 	color: red;
 	font-size: 14px;
 }
@@ -146,13 +162,15 @@ th {
 	transition: 0.3s;
 }
 
+
 .form_input:focus {
 	border-bottom: 1px solid #1a73a8;
+	
 }
 
 .form_button {
 	padding: 10px 20px;
-	margin-top: 15px;
+	margin-top: 0px;
 	border: none;
 	border-radius: 4px;
 	color: #fff;
@@ -176,3 +194,7 @@ th {
 	font-size: 12px;
 	color: #e0e0e0;
 }
+
+textarea {
+    resize: none;
+   } 

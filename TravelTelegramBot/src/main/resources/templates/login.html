@@ -24,7 +24,7 @@
 				placeholder=" "> <label class="form_label">password</label>
 		</div>
 		<div class="form_group">
-			<label class="errors" th:if="${param.error}">Invalid username
+			<label class="error" th:if="${param.error}">Invalid username
 				or password</label> <label class="warn" th:if="${param.logout}">You
 				have been logged out</label>
 		</div>
