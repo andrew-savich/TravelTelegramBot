@@ -10,7 +10,7 @@ body {
 	letter-spacing: 1px;
 }
 
-html, body{
+html, body {
 	margin: 0;
 }
 
@@ -31,7 +31,7 @@ table {
 	border-collapse: collapse;
 }
 
-td, th{
+td, th {
 	border: 1px solid #e0e0e0;
 	padding: 5px;
 }
@@ -44,7 +44,7 @@ th {
 	background: #e0e0e0;
 }
 
-.main-container{
+.main-container {
 	padding: 30px;
 	border-radius: 5px;
 	border-bottom: 1px solid #ccc;
@@ -62,7 +62,7 @@ th {
 	overflow: hidden;
 }
 
-.admin-panel-content{
+.admin-panel-content {
 	height: 65%;
 	overflow: scroll;
 	margin-bottom: 20px;
@@ -80,34 +80,34 @@ th {
 	font-weight: normal;
 }
 
-.head-title{
+.head-title {
 	text-align: center;
 	font-weight: normal;
 }
 
-.column-id{
+.column-id {
 	width: 3%;
 	text-align: center;
 	
 }
 
-.column-title{
-		width: 20%;
+.column-title {
+	width: 20%;
 }
 
-.column-description{
+.column-description {
 	max-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.column-action{
+.column-action {
 	width: 15%;
 	text-align: center;
 }
 
-.action-link{
+.action-link {
 	margin: 0 5px 0 5px;	
 }
 
@@ -150,7 +150,7 @@ th {
 	transition: 0.3s;
 }
 
-.input-city{
+.input-city {
 	width: 50%;
 }
 

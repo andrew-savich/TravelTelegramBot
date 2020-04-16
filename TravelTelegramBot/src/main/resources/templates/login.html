@@ -14,21 +14,20 @@
 			<h1 class="form-title">Login</h1>
 
 			<div class="form-group">
-				<input type="text" name="username" class="form-input"
-					placeholder=" "> <label class="form-label">username</label>
+				<input type="text" name="username" class="form-input" placeholder=" ">
+				<label class="form-label">username</label>
 			</div>
 
 			<div class="form-group">
-				<input type="password" name="password" class="form-input"
-					placeholder=" "> <label class="form-label">password</label>
+				<input type="password" name="password" class="form-input" placeholder=" ">
+				<label class="form-label">password</label>
 			</div>
 			<div class="form-group">
-				<label class="label-error" th:if="${param.error}">Invalid username
-					or password</label> <label class="warn" th:if="${param.logout}">You
-					have been logged out</label>
+				<label class="label-error" th:if="${param.error}">Invalid username or password</label>
+				<label class="warn" th:if="${param.logout}">You	have been logged out</label>
 			</div>
+			
 			<input type="submit" value="Log in" class="form-button" />
-
 		</form>
 	</div>
 </body>

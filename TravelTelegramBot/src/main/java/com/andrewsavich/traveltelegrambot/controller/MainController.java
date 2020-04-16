@@ -19,21 +19,30 @@ import com.andrewsavich.traveltelegrambot.service.CityService;
 
 @Controller
 public class MainController {
+
 	@Autowired
 	private CityService cityService;
 
-	@GetMapping("/adminpanel")
-	public String viewAdminPage(Model model) {
+	@GetMapping("/home")
+	public String viewHomePage(Model model) {
 		List<City> cities = cityService.allCities();
 		model.addAttribute("cities", cities);
-		return "adminPanel";
+		return "home";
 	}
-
-	@GetMapping("/adminpanel/addedit")
+	
+	@GetMapping("/home/addedit")
 	public String viewAddCity(Model model) {
 		City city = new City();
 		model.addAttribute("city", city);
 		return "addedit";
+	}
+
+	@GetMapping("/addedit/{id}")
+	public ModelAndView viewEditCity(@PathVariable(name = "id") int id) {
+		ModelAndView modelAndView = new ModelAndView("addedit");
+		City city = cityService.getCityById(id);
+		modelAndView.addObject("city", city);
+		return modelAndView;
 	}
 
 	@PostMapping(value = "/save")
@@ -48,22 +57,13 @@ public class MainController {
 		}
 
 		cityService.saveCity(city);
-		return "redirect:/adminpanel";
+		return "redirect:/home";
 	}
 
 	@GetMapping(value = "/delete/{id}")
 	public String deleteCity(@PathVariable("id") int id) {
 		City city = cityService.getCityById(id);
 		cityService.deleteCity(city);
-		return "redirect:/adminpanel";
+		return "redirect:/home";
 	}
-
-	@GetMapping("/addedit/{id}")
-	public ModelAndView viewEditCity(@PathVariable(name = "id") int id) {
-		ModelAndView modelAndView = new ModelAndView("addedit");
-		City city = cityService.getCityById(id);
-		modelAndView.addObject("city", city);
-		return modelAndView;
-	}
-
 }
