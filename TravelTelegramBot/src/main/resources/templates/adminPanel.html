@@ -8,39 +8,51 @@
 	rel="stylesheet" />
 </head>
 <body>
-	<div class="form_table">
-	<h1 class="form_title">Cities</h1>
-		<table>
-			<thead>
-				<tr>
-					<th>City ID</th>
-					<th>City Title</th>
-					<th>Description</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="city : ${cities}">
-					<td th:text="${city.id}"></td>
-					<td th:text="${city.title}"></td>
-					<td th:text="${city.description}"></td>
-					<td><a th:href="@{'/addedit/' + ${city.id}}">Edit</a> <a
-						th:href="@{'/delete/' + ${city.id}}">Delete</a></td>
-					<!--<td><button class="form_button">Edit</button><button class="form_button">Delete</button></td>-->
-				</tr>
-			</tbody>
-		</table>
-		
-		<button class="form_button"	onclick="window.location.href = '/adminpanel/addedit';">Add
-			New City</button>
-
-	</div>
-
-	<div>
+	<header>
 		<form th:action="@{/logout}" method="post">
-			<input type="submit" value="Exit" />
+			<input id="logout" class="form_button"  type="submit" value="Log out" />
 		</form>
+	</header>
+	
+
+	<div class="container_admin">
+	
+		<p align="center">Travel telegram bot admin panel</p>
+		<h1 class="sub_title">Cities</h1>
+
+		<div class="form_admin">
+			<table>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>City Title</th>
+						<th>Description</th>
+						<th>Action</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="city : ${cities}">
+						<td class="column_id" th:text="${city.id}"></td>
+						<td class="column_title" th:text="${city.title}"></td>
+						<td class="column_description" th:text="${city.description}"></td>
+						<td class="column_action"><a class="actions"
+							th:href="@{'/addedit/' + ${city.id}}">Edit</a><a class="actions"
+							th:href="@{'/delete/' + ${city.id}}">Delete</a></td>
+					</tr>
+				</tbody>
+
+
+			</table>
+		</div>
+		<div class="form_footer">
+			<button class="form_button"
+				onclick="window.location.href = '/adminpanel/addedit';">Add
+				New City</button>
+
+		</div>
+
 	</div>
+
 
 </body>
 </html>

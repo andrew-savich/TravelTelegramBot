@@ -21,13 +21,14 @@
 					</tr>
 					<tr>
 						<td>City title:</td>
-						<td><input type="text" th:field="*{title}" /></td>
+						<td><input type="text" th:field="*{title}" required/></td>
 						<td th:if="${#fields.hasErrors('title')}" th:errors="*{title}">Title
 							Error</td>
 					</tr>
 					<tr>
 						<td>Description:</td>
-						<td><input type="text" th:field="*{description}" /></td>
+						<!-- <td><input type="text" th:field="*{description}" /></td>-->
+						<td><textarea rows="15" th:field="*{description}"></textarea></td>
 						<td th:if="${#fields.hasErrors('description')}"
 							th:errors="*{description}">Description Error</td>
 					</tr>

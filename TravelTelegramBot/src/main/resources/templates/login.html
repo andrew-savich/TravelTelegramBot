@@ -4,12 +4,15 @@
 	xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
 <title>Login to SavAndTravel admin panel</title>
-<link href="../static/css/style.css" th:href="@{/css/style.css}" rel="stylesheet" />
+<link href="../static/css/style.css" th:href="@{/css/style.css}"
+	rel="stylesheet" />
 </head>
 <body>
-	<form class="form_login" th:action="@{/login}" method="post">
 
-		<h1 class="form_title">Login</h1>
+	<form class="form_login" th:action="@{/login}" method="post">
+		<p align="right">Log in to admin panel</p>
+		<h1 class="sub_title">Login</h1>
+
 
 		<div class="form_group">
 			<input type="text" name="username" class="form_input" placeholder=" ">
@@ -21,8 +24,9 @@
 				placeholder=" "> <label class="form_label">password</label>
 		</div>
 		<div class="form_group">
-			<label class="errors" th:if="${param.error}">Invalid username or password</label>
-			<label class="warn" th:if="${param.logout}">You have been logged out</label>
+			<label class="errors" th:if="${param.error}">Invalid username
+				or password</label> <label class="warn" th:if="${param.logout}">You
+				have been logged out</label>
 		</div>
 		<input type="submit" value="Log in" class="form_button" />
 
