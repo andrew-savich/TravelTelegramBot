@@ -11,36 +11,44 @@
 <body>
 	<header>
 		<form th:action="@{/logout}" method="post">
-			<input id="logout" class="form_button" type="submit" value="Log out" />
+			<input class="form-button logout-button" type="submit" value="Log out" />
 		</form>
+		
+		<h4 class="head-title">Travel telegram bot admin panel</h4>
+		
+		<button class="form-button home-button" onclick="window.location.href = '/adminpanel';">Home</button>
 	</header>
-	<div id="edit" class="container_admin">
-	<p align="center">Travel telegram bot admin panel</p>
-		<h1 class="sub_title" th:if="!${city.id}">Add City</h1>
-		<h1 class="sub_title" th:if="${city.id}">Edit City</h1>
 
-		<form class="form_edi" action="#" th:action="@{/save}"
-			th:object="${city}" method="post">
-			<input th:if="${city.id}" type="hidden" th:field="*{id}" />
+	<div class="main-container edit-panel">
 
-			<div class="form_group">
-				<input type="text" class="form_input" placeholder=" "
-					th:field="*{title}" > <label class="form_label">city</label>
-				<label class="error" th:if="${#fields.hasErrors('title')}"
-					th:errors="*{title}">city</label>
-			</div>
-			<div class="form_group">
-				<textarea class="form_input" rows="10" placeholder=" "
-					th:field="*{description}"></textarea>
-				<label class="form_label">description</label> <label class="error" th:if="${#fields.hasErrors('description')}"
-					th:errors="*{description}">description</label>
-			</div>
-			<div>
-				<button class="form_button" th:if="!${city.id}" type="submit">Add City</button>
-			    <button class="form_button" th:if="${city.id}" type="submit">Save City</button>
-			</div>
-		</form>
-	</div>
+		<h1 class="form-title" th:if="!${city.id}">Add City</h1>
+		<h1 class="form-title" th:if="${city.id}">Edit City</h1>
+		<div class="edit-panel-content">
+			<form action="#" th:action="@{/save}" th:object="${city}"
+				method="post">
+				<input th:if="${city.id}" type="hidden" th:field="*{id}" />
 
+				<div class="form-group">
+					<input type="text" class="form-input input-city" placeholder=" "
+						th:field="*{title}"> <label class="form-label">city</label>
+					<label class="label-error" th:if="${#fields.hasErrors('title')}"
+						th:errors="*{title}">city</label>
+				</div>
+				<div class="form-group">
+					<textarea class="form-input" rows="10" placeholder=" "
+						th:field="*{description}"></textarea>
+					<label class="form-label">description</label> <label class="label-error"
+						th:if="${#fields.hasErrors('description')}"
+						th:errors="*{description}">description</label>
+				</div>
+				<div>
+					<button class="form-button" th:if="!${city.id}" type="submit">Add
+						City</button>
+					<button class="form-button" th:if="${city.id}" type="submit">Save
+						City</button>
+				</div>
+			</form>
+			</div>
+		</div>
 </body>
 </html>

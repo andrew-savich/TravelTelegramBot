@@ -14,53 +14,18 @@ html, body{
 	margin: 0;
 }
 
-header{
-    width: 70%;
-	margin-top: 0;
-    padding: 0;
-	align-content: center;
+header {
+	position: fixed;
+    width: 90%;
+    top: 0;
+    padding:30px;
 }
 
+textarea {
+    resize: none;
+ } 
 
-.form_login {
-	width: 20%;
-	padding: 30px;
-	border-radius: 5px;
-	box-shadow: 0 4px 5px #ccc;
-}
-
-
-.container_admin {
-	width: 70%;
-	height: 80%;
-	padding: 0 30px;
-	border-radius: 5px;
-	box-shadow: 0 4px 5px #ccc;
-}
-
-#edit.container_admin{
-	width: 50%;
-	height: 80%;
-	padding: 10px;
-	border-radius: 5px;
-	box-shadow: 0 4px 5px #ccc;
-}
-
-.form_edit{
-	width: 90%;
-	height: 60%;
-	padding: 20px;
-	margin: 0;
-	border-radius: 5px;
-	box-shadow: 0 4px 5px #ccc;
-}
-
-.form_admin{
-	height: 65%;
-	overflow: scroll;
-}
-
-table{
+table {
 	width: 100%;
 	border: 1px solid #e0e0e0;
 	border-collapse: collapse;
@@ -71,68 +36,93 @@ td, th{
 	padding: 5px;
 }
 
-th{
-	text-align: center;
-	
-}
-
 th {
+	text-align: center;
 	border: 1px solid #e0e0e0;
 	position: sticky;
 	top: 0;
 	background: #e0e0e0;
 }
 
+.main-container{
+	padding: 30px;
+	border-radius: 5px;
+	border-bottom: 1px solid #ccc;
+	box-shadow: 0 4px 5px #ccc;
+}
 
-.column_id{
+.login-panel {
+	width: 20%;
+	height: auto;
+}
+
+.admin-panel {
+	width: 70%;
+	height: 70%;
+	overflow: hidden;
+}
+
+.admin-panel-content{
+	height: 65%;
+	overflow: scroll;
+	margin-bottom: 20px;
+}
+
+.edit-panel {
+	width: 50%;
+	height: 70%;	
+	overflow: hidden;	
+}
+
+
+.form-title {
+	text-align: left;
+	font-weight: normal;
+}
+
+.head-title{
+	text-align: center;
+	font-weight: normal;
+}
+
+.column-id{
 	width: 3%;
 	text-align: center;
 	
 }
 
-.column_title{
+.column-title{
 		width: 20%;
 }
 
-.column_description{
+.column-description{
 	max-width: 0;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
-.column_action{
+.column-action{
 	width: 15%;
 	text-align: center;
 }
 
-.actions{
+.action-link{
 	margin: 0 5px 0 5px;	
 }
 
-.form_input, .form_button {
+.form-input, .form-button {
 	font-family: sans-serif;
 	letter-spacing: 1px;
 }
 
-.sub_title {
-	text-align: left;
-	margin: 0 0 30px 0;
-	font-weight: normal;
-}
 
-.main_title {
-	text-align: center;
-	margin: 0 0 20px 20px;
-	font-weight: normal;
-}
-
-.form_group {
+.form-group {
 	position: relative;
 	margin-bottom: 32px;
 }
 
-.form_label {
+.form-label {
 	position: absolute;
 	top: 5px;
 	left: 5px;
@@ -143,16 +133,14 @@ th {
 	z-index: -1;
 }
 
-.error {
+.label-error {
 	color: red;
 	font-size: 14px;
+	margin-left: 5px;
 }
 
-.warn {
-	font-size: 14px;
-}
 
-.form_input {
+.form-input {
 	width: 100%;
 	padding: 5px 0 5px 5px;
 	border: 1px solid #e0e0e0;
@@ -162,15 +150,17 @@ th {
 	transition: 0.3s;
 }
 
+.input-city{
+	width: 50%;
+}
 
-.form_input:focus {
+.form-input:focus {
 	border-bottom: 1px solid #1a73a8;
 	
 }
 
-.form_button {
+.form-button {
 	padding: 10px 20px;
-	margin-top: 0px;
 	border: none;
 	border-radius: 4px;
 	color: #fff;
@@ -180,21 +170,21 @@ th {
 	transition: 0.3s;
 }
 
-#logout{
+.logout-button {
 	float: right;
-	margin: 0;
 }
 
-.form_button:focus, .form_button:hover {
+.home-button {
+	float: left;
+	margin-top: -60px;
+}
+
+.form-button:focus, .form-button:hover {
 	background-color: rgba(0, 113, 240, 0.7);
 }
 
-.form_input:focus ~ .form_label, .form_input:not(:placeholder-shown) ~ .form_label {
+.form-input:focus ~ .form-label, .form-input:not(:placeholder-shown) ~ .form-label {
 	top: -18px;
 	font-size: 12px;
 	color: #e0e0e0;
 }
-
-textarea {
-    resize: none;
-   } 

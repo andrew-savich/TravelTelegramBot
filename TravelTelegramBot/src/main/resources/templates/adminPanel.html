@@ -3,23 +3,25 @@
 	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>SavAndTravel Home Page</title>
+<title>Bot admin panel</title>
 <link href="../static/css/style.css" th:href="@{/css/style.css}"
 	rel="stylesheet" />
 </head>
 <body>
 	<header>
-		<form th:action="@{/logout}" method="post">
-			<input id="logout" class="form_button"  type="submit" value="Log out" />
-		</form>
-	</header>
-
-	<div class="container_admin">
 	
-		<p align="center">Travel telegram bot admin panel</p>
-		<h1 class="sub_title">Cities</h1>
+		<form th:action="@{/logout}" method="post">
+			<input class="form-button logout-button"  type="submit" value="Log out" />
+		</form>
+		<h4 class="head-title">Travel telegram bot admin panel</h4>
+	</header>
+	
+	<div class="main-container admin-panel">
+	
+		
+		<h1 class="form-title">Cities</h1>
 
-		<div class="form_admin">
+		<div class="admin-panel-content">
 			<table>
 				<thead>
 					<tr>
@@ -31,11 +33,11 @@
 				</thead>
 				<tbody>
 					<tr th:each="city : ${cities}">
-						<td class="column_id" th:text="${city.id}"></td>
-						<td class="column_title" th:text="${city.title}"></td>
-						<td class="column_description" th:text="${city.description}"></td>
-						<td class="column_action"><a class="actions"
-							th:href="@{'/addedit/' + ${city.id}}">Edit</a><a class="actions"
+						<td class="column-id" th:text="${city.id}"></td>
+						<td class="column-title" th:text="${city.title}"></td>
+						<td class="column-description" th:text="${city.description}"></td>
+						<td class="column-action"><a class="actions"
+							th:href="@{'/addedit/' + ${city.id}}">Edit</a><a class="action-link"
 							th:href="@{'/delete/' + ${city.id}}">Delete</a></td>
 					</tr>
 				</tbody>
@@ -43,7 +45,7 @@
 			</table>
 		</div>
 		<div>
-			<button class="form_button" onclick="window.location.href = '/adminpanel/addedit';">Add	New City</button>
+			<button class="form-button" onclick="window.location.href = '/adminpanel/addedit';">Add	New City</button>
 		</div>
 
 	</div>

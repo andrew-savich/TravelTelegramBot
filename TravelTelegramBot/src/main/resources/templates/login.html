@@ -8,29 +8,28 @@
 	rel="stylesheet" />
 </head>
 <body>
+	<div class="main-container login-panel">
+		<form th:action="@{/login}" method="post">
+			<p align="right">Log in to admin panel</p>
+			<h1 class="form-title">Login</h1>
 
-	<form class="form_login" th:action="@{/login}" method="post">
-		<p align="right">Log in to admin panel</p>
-		<h1 class="sub_title">Login</h1>
+			<div class="form-group">
+				<input type="text" name="username" class="form-input"
+					placeholder=" "> <label class="form-label">username</label>
+			</div>
 
+			<div class="form-group">
+				<input type="password" name="password" class="form-input"
+					placeholder=" "> <label class="form-label">password</label>
+			</div>
+			<div class="form-group">
+				<label class="label-error" th:if="${param.error}">Invalid username
+					or password</label> <label class="warn" th:if="${param.logout}">You
+					have been logged out</label>
+			</div>
+			<input type="submit" value="Log in" class="form-button" />
 
-		<div class="form_group">
-			<input type="text" name="username" class="form_input" placeholder=" ">
-			<label class="form_label">username</label>
-		</div>
-
-		<div class="form_group">
-			<input type="password" name="password" class="form_input"
-				placeholder=" "> <label class="form_label">password</label>
-		</div>
-		<div class="form_group">
-			<label class="error" th:if="${param.error}">Invalid username
-				or password</label> <label class="warn" th:if="${param.logout}">You
-				have been logged out</label>
-		</div>
-		<input type="submit" value="Log in" class="form_button" />
-
-
-	</form>
+		</form>
+	</div>
 </body>
 </html>
