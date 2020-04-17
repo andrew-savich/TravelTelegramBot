@@ -45,10 +45,12 @@ th {
 }
 
 .main-container {
+	margin-top: 50px;
 	padding: 30px;
 	border-radius: 5px;
 	border-bottom: 1px solid #ccc;
 	box-shadow: 0 4px 5px #ccc;
+	
 }
 
 .login-panel {
@@ -58,7 +60,7 @@ th {
 
 .admin-panel {
 	width: 70%;
-	height: 70%;
+	height: 80%;
 	overflow: hidden;
 }
 
@@ -70,10 +72,9 @@ th {
 
 .edit-panel {
 	width: 50%;
-	height: 70%;	
+	height: auto;	
 	overflow: hidden;	
 }
-
 
 .form-title {
 	text-align: left;
@@ -168,6 +169,7 @@ th {
 	outline: none;
 	cursor: pointer;
 	transition: 0.3s;
+	margin-bottom: 30px;
 }
 
 .logout-button {
