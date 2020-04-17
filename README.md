@@ -1,6 +1,7 @@
 # TravelTelegramBot
 
 SavAndTravelBot - travel telegram bot | username: SavAndTravelBot, token: 1277036804:AAGHU3LRmSmsWXtMLaiaJhUCi-5qb8rm9RQ
+
 Technologies: Java 1.8, Spring Boot, Spring MVC, Spring Data, Spring Security Maven. And for tests used internal H2 database, which automaticly runnig and putting data from data.sql
 
 Launch:
