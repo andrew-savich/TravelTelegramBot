@@ -2,7 +2,7 @@
 
 SavAndTravelBot - travel telegram bot | username: SavAndTravelBot, token: 1277036804:AAGHU3LRmSmsWXtMLaiaJhUCi-5qb8rm9RQ
 
-Technologies: Java 1.8, Spring Boot, Spring MVC, Spring Data, Spring Security Maven. And for tests used internal H2 database, which automaticly runnig and putting data from data.sql
+Technologies: Java 1.8, Spring Boot, Spring MVC, Spring Data, Spring Security, Maven. And for tests used internal H2 database, which automaticly runnig and putting data from data.sql
 
 Launch:
 1) download jar archive: https://drive.google.com/file/d/19ZTDO0183AhgUFhpLYMKz30h6xR6vio2/view?usp=sharing
