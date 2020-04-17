@@ -1,6 +1,7 @@
 package com.andrewsavich.traveltelegrambot.bot;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -13,6 +14,10 @@ import com.andrewsavich.traveltelegrambot.service.CityService;
 
 @Component
 public class Bot extends TelegramLongPollingBot {
+	@Value("${telegram.token}")
+	private String token;
+	@Value("${telegram.username}")
+	private String userName;
 	private byte countUnknownMessages = 0;
 
 	@Autowired
@@ -53,12 +58,12 @@ public class Bot extends TelegramLongPollingBot {
 
 	@Override
 	public String getBotUsername() {
-		return "SavAndTravelBot";
+		return userName;
 	}
 
 	@Override
 	public String getBotToken() {
-		return "1277036804:AAGHU3LRmSmsWXtMLaiaJhUCi-5qb8rm9RQ";
+		return token;
 	}
 
 	public void sendMsg(Message msg, String text) {
